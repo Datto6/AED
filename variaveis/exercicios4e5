@@ -1,0 +1,37 @@
+//qntd de primos ate um numero maximo
+int eh_primo(int n){
+    for (int i=2;i<=sqrt(n);i++){
+        if (n%i==0){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int QtdePrimos(int n) {
+	/* insert your code here */
+	int contador=0;
+    for (int i=2;i<=n;i++){
+        if (eh_primo(i)){
+            contador+=1;
+        }
+    }
+	return contador;
+}
+
+// retorna essa conta 4 × ∑ { (-1)^(k+1) / (2k-1) : k = 1,2,...,10^n }. [O(10^n)]
+double ContaMisteriosa(int n) {
+	/* insert your code here */
+	long int limite=pow(10,n);
+	double soma=0;
+	for (long int i=1;i<=limite;i++){
+		double divisor=2*i-1;
+		if (i%2==1){
+			soma=soma+(1/divisor);
+		}
+		else{
+			soma=soma-(1/divisor);
+		}
+	}
+	return 4*soma;
+}
