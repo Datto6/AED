@@ -8,3 +8,21 @@ int * Concatenar(int L1[], int n1, int L2[], int n2) { //concatena duas listas l
 	}
 	return nova;
 }
+
+No * Concatenar(No * L1, No * L2) { //concatena duas listas encadeadas
+	/* insert your code here */
+	struct No* p=L1;
+	No* L=NULL;
+	No* u=NULL;
+	No* retorno=NULL;
+	while (p!=NULL){
+		Inserefim(L,p->E,u);
+		p=p->Prox;
+	}
+	p=L2;
+	while (p!=NULL){
+		Inserefim(L,p->E,u);
+		p=p->Prox;
+	}
+	return L;
+}
