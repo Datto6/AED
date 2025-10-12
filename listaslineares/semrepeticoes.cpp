@@ -33,3 +33,24 @@ No * SemRepeticoes(No * L) { //lista encadeada, mesmo retorno e complexidade so 
 	}
 	return novo;
 }
+
+No * SemRepeticoes(No * L) {
+	No* p=L;
+	No* pAnt=NULL;
+	while (p!=NULL){
+		No* prox=p->Prox;
+		if (Busca(prox,p->E)){
+			removeEncadeada(L,p,pAnt);
+		}
+		else{
+			pAnt=p;
+		}
+		p=prox;
+	}
+	No* novo=NULL;
+	while (p!=NULL){
+		Insere(novo,p->E);
+		p=p->Prox;
+	}
+	return novo;
+}
