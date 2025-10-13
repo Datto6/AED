@@ -5,6 +5,15 @@ void Inverter(int L[], int n) { //inverte lista sequencial
 		L[n-i-1]=tmp;
 	}
 }
+No * Inverte(No * L) { //inverte lista encadeada, produzindo uma nova
+	No* p=L;
+	No* novo=NULL;
+	while(p!=NULL){
+		Insere(novo,p->E); //insere no inicio
+		p=p->Prox;
+	}
+	return novo;
+}
 long long int ParesIguais(int A[], int B[], int n) { //quantos pares de valores entre A e B, O(n)
 	int contA=0;
 	int contB=0;
