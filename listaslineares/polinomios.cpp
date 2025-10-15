@@ -60,7 +60,7 @@ No * SomaPolinomios(No * P, No * Q) { //soma polinomios
 			q=q->Prox;
 		}
 		InsereEnc(copia,elemento,ultimo2);
-		if (elemento!=0){
+		if (elemento!=0){ //se nao for zero, adiciona o que foi feito ate agora a saida
 			No* copiador=copia;
 			while(copiador!=NULL){
 				InsereEnc(saida,copiador->E,ultimo1);
@@ -85,7 +85,7 @@ No * ProdutoPolinomioEscalar(No * P, int a) { //produto polinomio por escalar
 	while (p!=NULL){
 		int elemento=p->E*a;
 		InsereEnc(copia,elemento,ultimo2);
-		if (elemento!=0){
+		if (elemento!=0){ //adiciona a saida se nao for zero
 			No* iterador=copia;
 			while (iterador!=NULL){
 				InsereEnc(saida,iterador->E,ultimo1);
@@ -108,13 +108,13 @@ No * ProdutoPolinomios(No * P, No * Q) {
 	No* saida=NULL;
 	while(p!=NULL){
 		int elemento=p->E;
-		No* soma=ProdutoPolinomioEscalar(Q,elemento);
+		No* soma=ProdutoPolinomioEscalar(Q,elemento); //propriedade de produto de polinomio, multiplicando Q pelo elemtno de P
 		for(int i=0;i<grau;i++){
-			InsereInicioEnc(soma,0);
+			InsereInicioEnc(soma,0);//adiciona 0 equivalente ao grau do elemento de P
 		}
 		grau++;
-		saida=SomaPolinomios(soma,saida);
-		Destroi(soma);
+		saida=SomaPolinomios(soma,saida); //soma o resultado p saida
+		Destroi(soma); //destruindo para reusar a soma 
 		p=p->Prox;
 	}
 	return saida;
