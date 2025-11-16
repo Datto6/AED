@@ -48,6 +48,7 @@ No * SemRepeticoes(No * L) {
 		p=prox;
 	}
 	No* novo=NULL;
+	p=L;
 	while (p!=NULL){
 		Insere(novo,p->E);
 		p=p->Prox;
