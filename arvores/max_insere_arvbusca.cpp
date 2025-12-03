@@ -5,7 +5,7 @@ int Maior(No * T) { //maior elemento numa arvore de busca
 	return T->E;
 }
 
-void Insere(No * &T, int x) {
+void Insere(No * &T, int x) { //insere numa arvore de busca, adiciona ao Q se ja tiver la
 	if(T!=NULL){
 		if(T->E==x){
 			T->Q++;
